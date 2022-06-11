@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/frontend-eventos-amf/static/css/main.e1275283.css",
-    "main.js": "/frontend-eventos-amf/static/js/main.5d8154b0.js",
+    "main.js": "/frontend-eventos-amf/static/js/main.997eb67c.js",
     "static/js/787.1c468d41.chunk.js": "/frontend-eventos-amf/static/js/787.1c468d41.chunk.js",
     "static/media/videoHome.mp4": "/frontend-eventos-amf/static/media/videoHome.cbfb06ab026c41142648.mp4",
     "static/media/vestibular.jpg": "/frontend-eventos-amf/static/media/vestibular.029c6646f85d642aac08.jpg",
@@ -11,11 +11,11 @@
     "index.html": "/frontend-eventos-amf/index.html",
     "static/media/onda.svg": "/frontend-eventos-amf/static/media/onda.a1084712de8d958244aee1e2555c6a4c.svg",
     "main.e1275283.css.map": "/frontend-eventos-amf/static/css/main.e1275283.css.map",
-    "main.5d8154b0.js.map": "/frontend-eventos-amf/static/js/main.5d8154b0.js.map",
+    "main.997eb67c.js.map": "/frontend-eventos-amf/static/js/main.997eb67c.js.map",
     "787.1c468d41.chunk.js.map": "/frontend-eventos-amf/static/js/787.1c468d41.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e1275283.css",
-    "static/js/main.5d8154b0.js"
+    "static/js/main.997eb67c.js"
   ]
 }
