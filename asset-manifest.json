@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/frontend-eventos-amf/static/css/main.e1275283.css",
+    "main.js": "/frontend-eventos-amf/static/js/main.5d8154b0.js",
+    "static/js/787.1c468d41.chunk.js": "/frontend-eventos-amf/static/js/787.1c468d41.chunk.js",
+    "static/media/videoHome.mp4": "/frontend-eventos-amf/static/media/videoHome.cbfb06ab026c41142648.mp4",
+    "static/media/vestibular.jpg": "/frontend-eventos-amf/static/media/vestibular.029c6646f85d642aac08.jpg",
+    "static/media/logo-evento.jpg": "/frontend-eventos-amf/static/media/logo-evento.7f0b3ae09b35fcd3b2fb.jpg",
+    "static/media/logo-branca-com-escrita.png": "/frontend-eventos-amf/static/media/logo-branca-com-escrita.7a8f1bc58071c03b99eb.png",
+    "static/media/logo-branca-amf.png": "/frontend-eventos-amf/static/media/logo-branca-amf.7454a6ebfc9d340687b8.png",
+    "index.html": "/frontend-eventos-amf/index.html",
+    "static/media/onda.svg": "/frontend-eventos-amf/static/media/onda.a1084712de8d958244aee1e2555c6a4c.svg",
+    "main.e1275283.css.map": "/frontend-eventos-amf/static/css/main.e1275283.css.map",
+    "main.5d8154b0.js.map": "/frontend-eventos-amf/static/js/main.5d8154b0.js.map",
+    "787.1c468d41.chunk.js.map": "/frontend-eventos-amf/static/js/787.1c468d41.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e1275283.css",
+    "static/js/main.5d8154b0.js"
+  ]
+}
