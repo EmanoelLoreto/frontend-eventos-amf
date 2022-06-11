@@ -73,6 +73,7 @@
 		"no-tabs": "off",
 		"consistent-return": "off",
 		"function-paren-newline": "off",
-        "react/jsx-props-no-spreading": "off"
+        "react/jsx-props-no-spreading": "off",
+        "jsx-a11y/media-has-caption": "off"
     }
 }
