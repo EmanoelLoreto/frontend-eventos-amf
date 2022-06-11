@@ -13,7 +13,7 @@ import logoBrancaAmf from '../../assets/logo-branca-amf.png'
 import logoBrancaComEscrita from '../../assets/logo-branca-com-escrita.png'
 
 const HeaderContainer = () => {
-  const [transparentHeader, setTransparentHeader] = useState(false)
+  const [transparentHeader, setTransparentHeader] = useState(true)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
