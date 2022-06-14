@@ -186,6 +186,7 @@ const HomeContainer = () => {
                 <AndressContact>Estrada Recanto Maestro, nº 338</AndressContact>
                 <AndressContact>Restinga Sêca-RS</AndressContact>
                 <AndressContact>97200-000, Brasil</AndressContact>
+                <AndressContact>(55) 3289-1141 | (55) 99998-0696</AndressContact>
                 <AndressContact>
                   <b>Email:</b> amf@faculdadeam.edu.br
                 </AndressContact>
