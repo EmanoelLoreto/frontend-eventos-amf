@@ -10,6 +10,5 @@ export const BackgroundSuspense = styled.div`
 `
 
 export const LogoAmf = styled.img`
-  width: 50vw;
-  height: 35vh;
+  width: 30vw;
 `
