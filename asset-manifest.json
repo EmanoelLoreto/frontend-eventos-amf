@@ -1,8 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.05c9d262.css",
-    "main.js": "/static/js/main.56d73002.js",
+    "main.js": "/static/js/main.2a4a13e8.js",
+    "static/js/920.5fcf88b7.chunk.js": "/static/js/920.5fcf88b7.chunk.js",
+    "static/js/539.04db08af.chunk.js": "/static/js/539.04db08af.chunk.js",
+    "static/js/439.d9386ed2.chunk.js": "/static/js/439.d9386ed2.chunk.js",
+    "static/js/854.fd57886b.chunk.js": "/static/js/854.fd57886b.chunk.js",
+    "static/js/557.8c10a843.chunk.js": "/static/js/557.8c10a843.chunk.js",
     "static/js/787.1c468d41.chunk.js": "/static/js/787.1c468d41.chunk.js",
+    "static/js/313.c71c5bbb.chunk.js": "/static/js/313.c71c5bbb.chunk.js",
     "static/media/videoHome.mp4": "/static/media/videoHome.cbfb06ab026c41142648.mp4",
     "static/media/fundo-amf.png": "/static/media/fundo-amf.e11179470cc9f1562348.png",
     "static/media/vestibular.jpg": "/static/media/vestibular.029c6646f85d642aac08.jpg",
@@ -12,11 +18,17 @@
     "static/media/onda.svg": "/static/media/onda.a1084712de8d958244aee1e2555c6a4c.svg",
     "index.html": "/index.html",
     "main.05c9d262.css.map": "/static/css/main.05c9d262.css.map",
-    "main.56d73002.js.map": "/static/js/main.56d73002.js.map",
-    "787.1c468d41.chunk.js.map": "/static/js/787.1c468d41.chunk.js.map"
+    "main.2a4a13e8.js.map": "/static/js/main.2a4a13e8.js.map",
+    "920.5fcf88b7.chunk.js.map": "/static/js/920.5fcf88b7.chunk.js.map",
+    "539.04db08af.chunk.js.map": "/static/js/539.04db08af.chunk.js.map",
+    "439.d9386ed2.chunk.js.map": "/static/js/439.d9386ed2.chunk.js.map",
+    "854.fd57886b.chunk.js.map": "/static/js/854.fd57886b.chunk.js.map",
+    "557.8c10a843.chunk.js.map": "/static/js/557.8c10a843.chunk.js.map",
+    "787.1c468d41.chunk.js.map": "/static/js/787.1c468d41.chunk.js.map",
+    "313.c71c5bbb.chunk.js.map": "/static/js/313.c71c5bbb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.05c9d262.css",
-    "static/js/main.56d73002.js"
+    "static/js/main.2a4a13e8.js"
   ]
 }
