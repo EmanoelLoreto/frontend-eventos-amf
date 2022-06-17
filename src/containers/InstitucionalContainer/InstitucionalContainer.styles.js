@@ -5,9 +5,18 @@ export const Container = styled.div`
   overflow-x: hidden;
 `
 
-export const SectionHeader = styled.section``
+export const SectionHeader = styled.section`
+  img {
+    width: 100%;
+  }
+`
 
-export const SectionEventos = styled.section`
+export const ImgOndaDivisor = styled.img`
+  margin-top: -8px;
+  transition: all 0.3s ease-in-out 0s;
+`
+
+export const SectionQuemSomos = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,140 +32,6 @@ export const SectionEventos = styled.section`
 
     :hover {
       color: rgb(0, 186, 255);
-    }
-  }
-`
-
-export const ImgOndaDivisor = styled.img`
-  margin-top: -8px;
-  transition: all 0.3s ease-in-out 0s;
-`
-
-export const CardsEventos = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 15px 0px;
-  margin: auto;
-  width: 90vw;
-  justify-content: space-evenly;
-`
-
-export const Card = styled.div`
-  display: grid;
-  grid-template-columns: 300px;
-  grid-template-rows: 210px 210px 80px;
-  grid-template-areas: "image" "text" "stats";
-
-  border-radius: 18px;
-  background: white;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
-  font-family: roboto;
-  text-align: center;
-
-  transition: 0.5s ease;
-  cursor: pointer;
-  margin: 30px;
-
-  :hover {
-    transform: scale(1.05);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-  }
-`
-
-export const CardImage = styled.div`
-  grid-area: image;
-  background: url(${ ({ img }) => img });
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  background-size: cover;
-`
-
-export const CardText = styled.div`
-  grid-area: text;
-  margin: 25px;
-
-  p {
-    color: grey;
-    font-size: 16px;
-    font-weight: 300;
-    margin: 5px;
-  }
-
-  h2 {
-    margin: 0px 0px 5px 0px;
-    font-size: 28px;
-  }
-`
-
-export const SpanDate = styled.span`
-  color: #F3558B;
-  font-size:13px;
-`
-
-export const CardStats = styled.div`
-  grid-area: stats; 
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background: #F3558B;
-`
-
-export const Stat = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  color: white;
-  padding:10px;
-`
-
-export const StatValue = styled.div`
-  font-size: 22px;
-  font-weight: 500;
-
-  sup {
-    font-size:12px;
-  }
-`
-
-export const StatType = styled.div`
-  font-size: 11px;
-  font-weight: 300;
-  text-transform: uppercase;
-`
-
-export const StatBorder = styled(Stat)`
-  border-left: 1px solid rgb(172, 26, 87);
-  border-right: 1px solid rgb(172, 26, 87);
-`
-
-export const HrVerde = styled.hr`
-  width: 10vw;
-  border: none;
-  width: 10vw;
-  border-bottom: 4px solid rgb(172, 26, 87);
-`
-
-export const SectionContato = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  h1 {
-    line-height: 1.27273;
-    font-weight: 700;
-    color: rgb(0, 186, 255);
-    font-size: 45px;
-    margin: 0;
-    transition: 0.5s ease;
-    
-    :hover {
-      color: #F3558B;
     }
   }
 
@@ -186,6 +61,13 @@ export const SectionContato = styled.section`
       margin: 10px 0px;
     }
   }
+`
+
+export const HrVerde = styled.hr`
+  width: 10vw;
+  border: none;
+  width: 10vw;
+  border-bottom: 4px solid rgb(172, 26, 87);
 `
 
 export const SectionFooter = styled.section`

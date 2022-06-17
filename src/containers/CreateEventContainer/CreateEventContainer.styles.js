@@ -5,25 +5,9 @@ export const Container = styled.div`
   overflow-x: hidden;
 `
 
-export const SectionHeader = styled.section``
-
-export const SectionEventos = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  h1 {
-    line-height: 1.27273;
-    font-weight: 700;
-    color: #F3558B;
-    font-size: 45px;
-    margin: 0;
-    transition: 0.5s ease;
-
-    :hover {
-      color: rgb(0, 186, 255);
-    }
+export const SectionHeader = styled.section`
+  img {
+    width: 100%;
   }
 `
 
@@ -32,116 +16,7 @@ export const ImgOndaDivisor = styled.img`
   transition: all 0.3s ease-in-out 0s;
 `
 
-export const CardsEventos = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 15px 0px;
-  margin: auto;
-  width: 90vw;
-  justify-content: space-evenly;
-`
-
-export const Card = styled.div`
-  display: grid;
-  grid-template-columns: 300px;
-  grid-template-rows: 210px 210px 80px;
-  grid-template-areas: "image" "text" "stats";
-
-  border-radius: 18px;
-  background: white;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
-  font-family: roboto;
-  text-align: center;
-
-  transition: 0.5s ease;
-  cursor: pointer;
-  margin: 30px;
-
-  :hover {
-    transform: scale(1.05);
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-  }
-`
-
-export const CardImage = styled.div`
-  grid-area: image;
-  background: url(${ ({ img }) => img });
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  background-size: cover;
-`
-
-export const CardText = styled.div`
-  grid-area: text;
-  margin: 25px;
-
-  p {
-    color: grey;
-    font-size: 16px;
-    font-weight: 300;
-    margin: 5px;
-  }
-
-  h2 {
-    margin: 0px 0px 5px 0px;
-    font-size: 28px;
-  }
-`
-
-export const SpanDate = styled.span`
-  color: #F3558B;
-  font-size:13px;
-`
-
-export const CardStats = styled.div`
-  grid-area: stats; 
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background: #F3558B;
-`
-
-export const Stat = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  color: white;
-  padding:10px;
-`
-
-export const StatValue = styled.div`
-  font-size: 22px;
-  font-weight: 500;
-
-  sup {
-    font-size:12px;
-  }
-`
-
-export const StatType = styled.div`
-  font-size: 11px;
-  font-weight: 300;
-  text-transform: uppercase;
-`
-
-export const StatBorder = styled(Stat)`
-  border-left: 1px solid rgb(172, 26, 87);
-  border-right: 1px solid rgb(172, 26, 87);
-`
-
-export const HrVerde = styled.hr`
-  width: 10vw;
-  border: none;
-  width: 10vw;
-  border-bottom: 4px solid rgb(172, 26, 87);
-`
-
-export const SectionContato = styled.section`
+export const SectionQuemSomos = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,11 +47,6 @@ export const SectionContato = styled.section`
     }
   }
 
-  div {
-    display: flex;
-    flex-direction: column;
-    margin: 100px;
-
     span {
       font-family: "Raleway", sans-serif;
       font-size: 1rem;
@@ -185,7 +55,23 @@ export const SectionContato = styled.section`
       text-align: justify;
       margin: 10px 0px;
     }
+`
+
+export const DivContatos = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 80px 0px;
+
+  hr {
+    margin: 0px 5vw;
   }
+`
+
+export const HrVerde = styled.hr`
+  width: 10vw;
+  border: none;
+  width: 10vw;
+  border-bottom: 4px solid rgb(172, 26, 87);
 `
 
 export const SectionFooter = styled.section`
@@ -299,4 +185,130 @@ export const LinkPink = styled.a`
   line-height: 24px;
   margin-bottom: 0;
   text-align: justify;
+`
+
+export const ContainerFormContact = styled.form`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  width: 60vw;
+  margin: 10px 0 2vw;
+`
+
+export const InputContact = styled.input`
+  font-family: "Open Sans", sans-serif;
+  flex: 1;
+  margin: 10px;
+  padding: 10px 14px;
+  box-shadow: none;
+  border-radius: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+  :focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgb(0 123 255 / 25%);
+  }
+`
+
+export const InputMessage = styled.textarea`
+  font-family: "Open Sans", sans-serif;
+  flex: 1;
+  margin: 10px;
+  padding: 10px 14px;
+  box-shadow: none;
+  border-radius: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  resize: none;
+  width: auto;
+
+  :focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgb(0 123 255 / 25%);
+  }
+`
+
+export const DivImageInput = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin: 0px 0px -5px 10px;
+  }
+`
+
+export const inputTitulo = {
+  gridArea: '1 / 1 / 2 / 5',
+}
+
+export const inputData = {
+  gridArea: '2 / 1 / 3 / 3',
+}
+
+export const inputHorario = {
+  gridArea: '2 / 3 / 3 / 5',
+}
+
+export const inputLocal = {
+  gridArea: '3 / 1 / 4 / 5',
+}
+
+export const inputPalestrante = {
+  gridArea: '4 / 1 / 5 / 5',
+}
+
+export const inputImagem = {
+  gridArea: '5 / 1 / 6 / 5',
+}
+
+export const inputDescricao = {
+  gridArea: '6 / 1 / 8 / 5',
+}
+
+export const buttonSend = {
+  gridArea: '8 / 2 / 9 / 4',
+}
+
+export const ButtonSendContact = styled.button`
+  background: #F3558B;
+  padding: 10px 40px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 50px;
+  justify-self: center;
+  transition: background .15s ease-in-out, box-shadow .15s ease-in-out;
+  height: 3.5vw;
+  margin-top: 5px;
+
+  :hover {
+    background: #54a3ff;
+    box-shadow: 0 0 0 0.1rem rgb(0 123 255 / 25%);
+  }
 `

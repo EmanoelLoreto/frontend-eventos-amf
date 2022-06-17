@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import map from 'lodash/map'
+import { useNavigate } from 'react-router-dom'
 
 import HeaderHome from '../../components/HeaderHome'
 
@@ -41,6 +42,8 @@ const HomeContainer = () => {
   const [eventos, setEventos] = useState([])
   const [isMobile, setIsMobile] = useState(false)
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setIsMobile(window.innerWidth < 600)
@@ -50,6 +53,7 @@ const HomeContainer = () => {
   useEffect(() => {
     setEventos([
       {
+        id: 1,
         nome: 'Viagem para ONU',
         local: 'Haia - Holanda',
         horario: '19:00',
@@ -58,6 +62,7 @@ const HomeContainer = () => {
         imagemEvento: logoEvento,
       },
       {
+        id: 1,
         nome: 'Viagem para ONU',
         local: 'Haia - Holanda',
         horario: '19:00',
@@ -66,6 +71,7 @@ const HomeContainer = () => {
         imagemEvento: logoEvento,
       },
       {
+        id: 1,
         nome: 'Vestibular 2022',
         local: 'Antônio Meneghetti Faculdade',
         horario: '19:00',
@@ -74,6 +80,7 @@ const HomeContainer = () => {
         imagemEvento: vestibular,
       },
       {
+        id: 1,
         nome: 'Viagem para ONU',
         local: 'Haia - Holanda',
         horario: '19:00',
@@ -82,6 +89,7 @@ const HomeContainer = () => {
         imagemEvento: logoEvento,
       },
       {
+        id: 1,
         nome: 'Vestibular 2022',
         local: 'Antônio Meneghetti Faculdade',
         horario: '19:00',
@@ -90,6 +98,7 @@ const HomeContainer = () => {
         imagemEvento: vestibular,
       },
       {
+        id: 1,
         nome: 'Vestibular 2022',
         local: 'Antônio Meneghetti Faculdade',
         horario: '19:00',
@@ -124,7 +133,7 @@ const HomeContainer = () => {
 
             <CardsEventos>
               {map(eventos, (evento, index) => (
-                <Card key={ index }>
+                <Card key={ index } onClick={ () => navigate(`/evento/${ evento.id }`) }>
                   <CardImage img={ evento.imagemEvento } />
                   <CardText>
                     <SpanDate>{evento.quantosDias} dias atrás</SpanDate>
@@ -172,7 +181,7 @@ const HomeContainer = () => {
                   Desde sua primeira edição o <TextPink>EventosAMF</TextPink> conta com o apoio da Antonio
                   Meneghetti Faculdade que disponibiliza recursos para isso acontecer.
                   Para saber mais sobre a faculdade, acesse{' '}
-                  <LinkPink href="www.faculdadeam.edu.br" target="_blank">
+                  <LinkPink href="https://www.faculdadeam.edu.br" target="_blank">
                     www.faculdadeam.edu.br
                   </LinkPink>
                   .

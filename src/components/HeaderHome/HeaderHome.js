@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 import {
   Header,
@@ -13,6 +14,9 @@ import logoBrancaAmf from '../../assets/logo-branca-amf.png'
 import logoBrancaComEscrita from '../../assets/logo-branca-com-escrita.png'
 
 const HeaderContainer = () => {
+  const navigate = useNavigate()
+  const location = useLocation()
+
   const [transparentHeader, setTransparentHeader] = useState(true)
 
   useEffect(() => {
@@ -24,7 +28,7 @@ const HeaderContainer = () => {
 
   return (
     <Header transparentHeader={ transparentHeader }>
-      <LogoAndNome>
+      <LogoAndNome onClick={ () => navigate('/') }>
         <img
           id="logo-branca-amf"
           src={ transparentHeader ? logoBrancaComEscrita : logoBrancaAmf }
@@ -37,16 +41,16 @@ const HeaderContainer = () => {
       <NavMenus>
         <Ul>
           <Li>
-            <Link href="/" selected>Eventos</Link>
+            <Link to="/" selected={ location.pathname === '/' }>Eventos</Link>
           </Li>
           <Li>
-            <Link href="/">Quem somos</Link>
+            <Link to="/institucional" selected={ location.pathname === '/institucional' }>Quem somos</Link>
           </Li>
           <Li>
-            <Link href="/">Contato</Link>
+            <Link to="/contato" selected={ location.pathname === '/contato' }>Contato</Link>
           </Li>
           <Li>
-            <LinkInscricao transparentHeader={ transparentHeader } href="/">Criar evento</LinkInscricao>
+            <LinkInscricao transparentHeader={ transparentHeader } to="/criar-evento">Criar evento</LinkInscricao>
           </Li>
         </Ul>
       </NavMenus>

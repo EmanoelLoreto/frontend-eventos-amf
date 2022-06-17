@@ -1,5 +1,6 @@
 /* eslint-disable global-require */
 import styled from 'styled-components'
+import { Link as LinkRouter } from 'react-router-dom'
 
 export const Header = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ export const Header = styled.div`
 export const LogoAndNome = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   h1 {
     font-size: 1.3rem;
@@ -46,7 +48,7 @@ export const Li = styled.li`
   margin: 0px 15px;
 `
 
-export const Link = styled.a`
+export const Link = styled(LinkRouter)`
   font-family: "Raleway", sans-serif;
   text-decoration: none;
   outline: none;
@@ -62,7 +64,23 @@ export const Link = styled.a`
   }
 `
 
-export const LinkInscricao = styled.a`
+export const LinkHref = styled.a`
+  font-family: "Raleway", sans-serif;
+  text-decoration: none;
+  outline: none;
+  padding: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: ${ ({ selected }) => (selected ? '#fff' : 'rgba(202, 206, 221, 0.8)') };
+  border-bottom: ${ ({ selected }) => (selected ? '3px solid #F3558B' : '') };
+  transition: all 0.3s ease-in-out 0s;
+
+  :hover {
+    color: #fff;
+  }
+`
+
+export const LinkInscricao = styled(LinkRouter)`
   color: #fff;
   background: ${ ({ transparentHeader }) => (transparentHeader ? '#F3558B' : 'transparent') };;
   padding: 7px 22px;

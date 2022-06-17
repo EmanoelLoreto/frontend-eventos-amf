@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/label-has-for */
 import React, { useState, useEffect } from 'react'
 // import map from 'lodash/map'
 
@@ -6,21 +9,8 @@ import HeaderHome from '../../components/HeaderHome/HeaderHome'
 import {
   Container,
   SectionHeader,
-  SectionEventos,
+  SectionQuemSomos,
   ImgOndaDivisor,
-  ContainerEvento,
-  Card,
-  CardImage,
-  CardAboutEvent,
-  CardDescriptionEvent,
-  SpanWithIcon,
-  // CardText,
-  // SpanDate,
-  // CardStats,
-  // Stat,
-  // StatValue,
-  // StatType,
-  // StatBorder,
   SectionFooter,
   ContainerFooterAboutAndContact,
   ContainerFooterAbout,
@@ -33,15 +23,25 @@ import {
   IconAwesome,
   HrVerde,
   TextPink,
-} from './EventContainer.styles'
+  ContainerFormContact,
+  InputContact,
+  InputMessage,
+  ButtonSendContact,
+  inputTitulo,
+  inputData,
+  inputHorario,
+  inputLocal,
+  inputPalestrante,
+  inputImagem,
+  inputDescricao,
+  buttonSend,
+  DivImageInput,
+} from './CreateEventContainer.styles'
 import ondaDivisor from '../../assets/onda.svg'
 import logoBrancaComEscrita from '../../assets/logo-branca-com-escrita.png'
-// import logoEvento from '../../assets/logo-evento.jpg'
-import vestibular from '../../assets/vestibular.jpg'
 import fundoAmf from '../../assets/fundo-amf.png'
 
-const HomeContainer = () => {
-  const [evento, setEvento] = useState({})
+const CreateEventContainer = () => {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -50,18 +50,6 @@ const HomeContainer = () => {
     }
 
     window.scrollTo(0, 0)
-  }, [])
-
-  useEffect(() => {
-    setEvento({
-      nome: 'Vestibular 2022',
-      local: 'Antônio Meneghetti Faculdade',
-      horario: '19:00',
-      data: '20/07/2022',
-      quantosDias: '10',
-      imagemEvento: vestibular,
-      palestrante: 'Eloy Teixeira',
-    })
   }, [])
 
   return (
@@ -75,54 +63,71 @@ const HomeContainer = () => {
             <HeaderHome />
           </SectionHeader>
 
-          <SectionEventos>
+          <SectionQuemSomos>
             <ImgOndaDivisor
               id="onda-divisor"
               src={ ondaDivisor }
               width="100%"
               alt="Icon"
             />
-            <h1>{evento.nome}</h1>
+            <h1>Criar evento</h1>
 
-            <ContainerEvento>
-              <Card>
-                <CardImage img={ evento.imagemEvento } />
-              </Card>
-              <CardAboutEvent>
-                <SpanWithIcon icon="\f007">
-                  Paslestrante: {evento.palestrante}
-                </SpanWithIcon>
-                <SpanWithIcon icon="\f073">
-                  Data evento: {evento.data}
-                </SpanWithIcon>
-                <SpanWithIcon icon="\f124">
-                  Local: {evento.local}
-                </SpanWithIcon>
-                <SpanWithIcon icon="\f017">
-                  Horário: {evento.horario}
-                </SpanWithIcon>
-              </CardAboutEvent>
-              <CardDescriptionEvent>
-                <h2>{evento.nome}</h2>
-                <p>
-                  A AMF é a melhor opção para realizar a sua formação! Com uma
-                  proposta única de formação, pautada pelo desenvolvimento
-                  integral do ser humano, a AMF oferece os cursos de graduação
-                  em Bacharelado em Ontopsicologia, Administração, Direito,
-                  Sistemas de Informação, Ciências Contábeis e Licenciatura em
-                  Pedagogia. O Vestibular AMF é agendado, com opções de data e
-                  horário para realização de provas de acordo com a sua
-                  preferência. As provas acontecem no prédio principal da AMF,
-                  conforme o Edital do Processo Seletivo, e são flexíveis,
-                  conforme a sua necessidade. Venha fazer o seu novo mundo em um
-                  local com grandes possibilidades de desenvolvimento acadêmico
-                  e profissional, estrutura completa, atendimento diferenciado e
-                  professores com expertise teórico-prática. Vem para a AMF!
-                  Acesse: <LinkPink href="https://www.vestibularamf2022.com/" target="_blank">https://www.vestibularamf2022.com/</LinkPink>
-                </p>
-              </CardDescriptionEvent>
-            </ContainerEvento>
-          </SectionEventos>
+            <ContainerFormContact>
+              <InputContact
+                id="nome"
+                type="text"
+                placeholder="Titulo evento"
+                required
+                style={ inputTitulo }
+              />
+              <InputContact
+                id="data"
+                type="text"
+                placeholder="Data"
+                required
+                style={ inputData }
+              />
+              <InputContact
+                id="horario"
+                type="time"
+                placeholder="Horário"
+                required
+                style={ inputHorario }
+              />
+              <InputContact
+                id="local"
+                type="text"
+                placeholder="Local"
+                required
+                style={ inputLocal }
+              />
+              <InputContact
+                id="palestrante"
+                type="text"
+                placeholder="Palestrante"
+                required
+                style={ inputPalestrante }
+              />
+              <DivImageInput style={ inputImagem }>
+                <label for="imagem">Selecione uma imagem</label>
+                <InputContact
+                  id="imagem"
+                  name="imagem"
+                  type="file"
+                  placeholder="Imagem"
+                  required
+                />
+              </DivImageInput>
+              <InputMessage
+                id="descricao"
+                type="textarea"
+                placeholder="Descrição"
+                required
+                style={ inputDescricao }
+              />
+              <ButtonSendContact style={ buttonSend }>Criar evento</ButtonSendContact>
+            </ContainerFormContact>
+          </SectionQuemSomos>
 
           <SectionFooter>
             <ContainerFooterAboutAndContact>
@@ -191,4 +196,4 @@ const HomeContainer = () => {
   )
 }
 
-export default HomeContainer
+export default CreateEventContainer

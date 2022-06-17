@@ -20,13 +20,13 @@ export const SectionEventos = styled.section`
   h1 {
     line-height: 1.27273;
     font-weight: 700;
-    color: #F3558B;
+    color: rgb(0, 186, 255);
     font-size: 45px;
     margin: 0;
     transition: 0.5s ease;
-
+    
     :hover {
-      color: rgb(0, 186, 255);
+      color: #F3558B;
     }
   }
 `
