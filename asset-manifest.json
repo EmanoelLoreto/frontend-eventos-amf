@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.294142b5.css",
-    "main.js": "/static/js/main.e5a3266b.js",
+    "main.css": "/static/css/main.05c9d262.css",
+    "main.js": "/static/js/main.56d73002.js",
     "static/js/787.1c468d41.chunk.js": "/static/js/787.1c468d41.chunk.js",
     "static/media/videoHome.mp4": "/static/media/videoHome.cbfb06ab026c41142648.mp4",
     "static/media/fundo-amf.png": "/static/media/fundo-amf.e11179470cc9f1562348.png",
@@ -11,12 +11,12 @@
     "static/media/logo-branca-amf.png": "/static/media/logo-branca-amf.7454a6ebfc9d340687b8.png",
     "static/media/onda.svg": "/static/media/onda.a1084712de8d958244aee1e2555c6a4c.svg",
     "index.html": "/index.html",
-    "main.294142b5.css.map": "/static/css/main.294142b5.css.map",
-    "main.e5a3266b.js.map": "/static/js/main.e5a3266b.js.map",
+    "main.05c9d262.css.map": "/static/css/main.05c9d262.css.map",
+    "main.56d73002.js.map": "/static/js/main.56d73002.js.map",
     "787.1c468d41.chunk.js.map": "/static/js/787.1c468d41.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.294142b5.css",
-    "static/js/main.e5a3266b.js"
+    "static/css/main.05c9d262.css",
+    "static/js/main.56d73002.js"
   ]
 }
