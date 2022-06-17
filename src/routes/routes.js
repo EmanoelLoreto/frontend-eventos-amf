@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 
-import HomeScreen from '../screens/HomeScreen'
-import EventScreen from '../screens/EventScreen'
-import InstitucionalScreen from '../screens/InstitucionalScreen'
-import ContatoScreen from '../screens/ContatoScreen'
-import CreateEventScreen from '../screens/CreateEventScreen'
+const HomeScreen = lazy(() => import('../screens/HomeScreen'))
+const EventScreen = lazy(() => import('../screens/EventScreen'))
+const InstitucionalScreen = lazy(() => import('../screens/InstitucionalScreen'))
+const ContatoScreen = lazy(() => import('../screens/ContatoScreen'))
+const CreateEventScreen = lazy(() => import('../screens/CreateEventScreen'))
 
 function Router() {
   return (
