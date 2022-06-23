@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import map from 'lodash/map'
 import { useNavigate } from 'react-router-dom'
 
+import axios from 'axios'
+
 import HeaderHome from '../../components/HeaderHome'
 
 import {
@@ -35,12 +37,14 @@ import {
 import videoHome from '../../assets/videoHome.mp4'
 import ondaDivisor from '../../assets/onda.svg'
 import logoBrancaComEscrita from '../../assets/logo-branca-com-escrita.png'
-import logoEvento from '../../assets/logo-evento.jpg'
-import vestibular from '../../assets/vestibular.jpg'
+// import logoEvento from '../../assets/logo-evento.jpg'
+// import vestibular from '../../assets/vestibular.jpg'
 
 const HomeContainer = () => {
   const [eventos, setEventos] = useState([])
   const [isMobile, setIsMobile] = useState(false)
+
+  const apiUrl = process.env.REACT_APP_API_URL
 
   const navigate = useNavigate()
 
@@ -48,66 +52,21 @@ const HomeContainer = () => {
     if (typeof window !== 'undefined') {
       setIsMobile(window.innerWidth < 600)
     }
+
+    axios
+      .get(`http://${ apiUrl }/events/get`)
+      .then((response) => {
+        console.log(response)
+        setEventos(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }, [])
 
   useEffect(() => {
-    setEventos([
-      {
-        id: 1,
-        nome: 'Viagem para ONU',
-        local: 'Haia - Holanda',
-        horario: '19:00',
-        data: '11/06/2022',
-        quantosDias: '20',
-        imagemEvento: logoEvento,
-      },
-      {
-        id: 1,
-        nome: 'Viagem para ONU',
-        local: 'Haia - Holanda',
-        horario: '19:00',
-        data: '11/06/2022',
-        quantosDias: '20',
-        imagemEvento: logoEvento,
-      },
-      {
-        id: 1,
-        nome: 'Vestibular 2022',
-        local: 'Antônio Meneghetti Faculdade',
-        horario: '19:00',
-        data: '20/07/2022',
-        quantosDias: '10',
-        imagemEvento: vestibular,
-      },
-      {
-        id: 1,
-        nome: 'Viagem para ONU',
-        local: 'Haia - Holanda',
-        horario: '19:00',
-        data: '11/06/2022',
-        quantosDias: '20',
-        imagemEvento: logoEvento,
-      },
-      {
-        id: 1,
-        nome: 'Vestibular 2022',
-        local: 'Antônio Meneghetti Faculdade',
-        horario: '19:00',
-        data: '20/07/2022',
-        quantosDias: '10',
-        imagemEvento: vestibular,
-      },
-      {
-        id: 1,
-        nome: 'Vestibular 2022',
-        local: 'Antônio Meneghetti Faculdade',
-        horario: '19:00',
-        data: '20/07/2022',
-        quantosDias: '10',
-        imagemEvento: vestibular,
-      },
-    ])
-  }, [])
+    console.log(eventos)
+  }, [eventos])
 
   return (
     <Container>
@@ -134,13 +93,12 @@ const HomeContainer = () => {
             <CardsEventos>
               {map(eventos, (evento, index) => (
                 <Card key={ index } onClick={ () => navigate(`/evento/${ evento.id }`) }>
-                  <CardImage img={ evento.imagemEvento } />
+                  <CardImage img={ `https://${ evento.arrImage[0] }` } />
                   <CardText>
                     <SpanDate>{evento.quantosDias} dias atrás</SpanDate>
-                    <h2>{evento.nome}</h2>
-                    <p>{evento.local}</p>
-                    <p>{evento.horario}</p>
-                    <p>{evento.data}</p>
+                    <h2>{evento.nameEvent}</h2>
+                    <p>{evento.place}</p>
+                    <p>{evento.time}</p>
                   </CardText>
                   <CardStats>
                     <Stat>

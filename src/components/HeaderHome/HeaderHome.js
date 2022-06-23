@@ -27,7 +27,7 @@ const HeaderContainer = () => {
   }, [])
 
   return (
-    <Header transparentHeader={ transparentHeader }>
+    <Header transparentheader={ transparentHeader }>
       <LogoAndNome onClick={ () => navigate('/') }>
         <img
           id="logo-branca-amf"
@@ -50,7 +50,7 @@ const HeaderContainer = () => {
             <Link to="/contato" selected={ location.pathname === '/contato' }>Contato</Link>
           </Li>
           <Li>
-            <LinkInscricao transparentHeader={ transparentHeader } to="/criar-evento">Criar evento</LinkInscricao>
+            <LinkInscricao transparentheader={ transparentHeader } to="/criar-evento">Criar evento</LinkInscricao>
           </Li>
         </Ul>
       </NavMenus>

@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/label-has-for */
-import React, { useState, useEffect } from 'react'
-// import map from 'lodash/map'
+import React, { useState, useEffect, useCallback } from 'react'
+import axios from 'axios'
 
 import HeaderHome from '../../components/HeaderHome/HeaderHome'
 
@@ -29,7 +29,6 @@ import {
   ButtonSendContact,
   inputTitulo,
   inputData,
-  inputHorario,
   inputLocal,
   inputPalestrante,
   inputImagem,
@@ -44,6 +43,16 @@ import fundoAmf from '../../assets/fundo-amf.png'
 const CreateEventContainer = () => {
   const [isMobile, setIsMobile] = useState(false)
 
+  const [form, setForm] = useState({
+    nameEvent: '',
+    time: '',
+    place: '',
+    speaker: '',
+    description: '',
+  })
+
+  const apiUrl = process.env.REACT_APP_API_URL
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setIsMobile(window.innerWidth < 600)
@@ -51,6 +60,39 @@ const CreateEventContainer = () => {
 
     window.scrollTo(0, 0)
   }, [])
+
+  const createEvent = useCallback(
+    (data) => {
+      data.preventDefault()
+
+      const formData = new FormData()
+      formData.append('image', form.files)
+
+      axios
+        .post(`http://${ apiUrl }/events/create`, {
+          ...form,
+          nameEvent: form.nameEvent,
+          place: form.place,
+          time: form.time,
+          description: form.description,
+        }, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        })
+        .then((response) => {
+          console.log(response)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    [],
+  )
+
+  useEffect(() => {
+    console.log(form)
+  }, [form])
 
   return (
     <Container>
@@ -72,27 +114,24 @@ const CreateEventContainer = () => {
             />
             <h1>Criar evento</h1>
 
-            <ContainerFormContact>
+            <ContainerFormContact onSubmit={ createEvent }>
               <InputContact
                 id="nome"
                 type="text"
                 placeholder="Titulo evento"
                 required
                 style={ inputTitulo }
+                value={ form.nameEvent }
+                onChange={ (e) => setForm({ ...form, nameEvent: e.target.value }) }
               />
               <InputContact
                 id="data"
                 type="text"
-                placeholder="Data"
+                placeholder="Data e horário"
                 required
                 style={ inputData }
-              />
-              <InputContact
-                id="horario"
-                type="time"
-                placeholder="Horário"
-                required
-                style={ inputHorario }
+                value={ form.time }
+                onChange={ (e) => setForm({ ...form, time: e.target.value }) }
               />
               <InputContact
                 id="local"
@@ -100,6 +139,8 @@ const CreateEventContainer = () => {
                 placeholder="Local"
                 required
                 style={ inputLocal }
+                value={ form.place }
+                onChange={ (e) => setForm({ ...form, place: e.target.value }) }
               />
               <InputContact
                 id="palestrante"
@@ -107,6 +148,8 @@ const CreateEventContainer = () => {
                 placeholder="Palestrante"
                 required
                 style={ inputPalestrante }
+                value={ form.speaker }
+                onChange={ (e) => setForm({ ...form, speaker: e.target.value }) }
               />
               <DivImageInput style={ inputImagem }>
                 <label for="imagem">Selecione uma imagem</label>
@@ -116,6 +159,7 @@ const CreateEventContainer = () => {
                   type="file"
                   placeholder="Imagem"
                   required
+                  onChange={ (e) => setForm({ ...form, files: e.target.files[0] }) }
                 />
               </DivImageInput>
               <InputMessage
@@ -124,6 +168,8 @@ const CreateEventContainer = () => {
                 placeholder="Descrição"
                 required
                 style={ inputDescricao }
+                value={ form.description }
+                onChange={ (e) => setForm({ ...form, description: e.target.value }) }
               />
               <ButtonSendContact style={ buttonSend }>Criar evento</ButtonSendContact>
             </ContainerFormContact>

@@ -263,7 +263,7 @@ export const inputTitulo = {
 }
 
 export const inputData = {
-  gridArea: '2 / 1 / 3 / 3',
+  gridArea: '2 / 1 / 3 / 5',
 }
 
 export const inputHorario = {

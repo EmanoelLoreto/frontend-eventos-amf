@@ -7,10 +7,9 @@ export const Header = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  // padding: ${ ({ transparentHeader }) => (transparentHeader ? '20px' : '5px') };
-  height: ${ ({ transparentHeader }) => (transparentHeader ? '120px' : '80px') };
+  height: ${ ({ transparentheader }) => (transparentheader ? '120px' : '80px') };
   background: ${
-  ({ transparentHeader }) => (transparentHeader ? 'rgb(15 15 15 / 0%);' : 'linear-gradient(rgb(4, 142, 236), rgb(2, 163, 245), rgb(0, 186, 255));')
+  ({ transparentheader }) => (transparentheader ? 'rgb(15 15 15 / 0%);' : 'linear-gradient(rgb(4, 142, 236), rgb(2, 163, 245), rgb(0, 186, 255));')
 };
   position: fixed;
   width: -webkit-fill-available;
@@ -82,7 +81,7 @@ export const LinkHref = styled.a`
 
 export const LinkInscricao = styled(LinkRouter)`
   color: #fff;
-  background: ${ ({ transparentHeader }) => (transparentHeader ? '#F3558B' : 'transparent') };;
+  background: ${ ({ transparentheader }) => (transparentheader ? '#F3558B' : 'transparent') };;
   padding: 7px 22px;
   border-radius: 50px;
   border: 3px solid #F3558B;
@@ -94,6 +93,6 @@ export const LinkInscricao = styled(LinkRouter)`
   z-index: 2;
 
   :hover {
-    background: ${ ({ transparentHeader }) => (transparentHeader ? 'transparent' : '#F3558B') };
+    background: ${ ({ transparentheader }) => (transparentheader ? 'transparent' : '#F3558B') };
   }
 `
