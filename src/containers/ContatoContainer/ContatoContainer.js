@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-// import map from 'lodash/map'
+import React, { useState, useEffect, useCallback } from 'react'
 
 import HeaderHome from '../../components/HeaderHome/HeaderHome'
 
@@ -24,7 +23,6 @@ import {
   ContainerFormContact,
   InputContact,
   inputNome,
-  inputEmail,
   inputAssunto,
   inputMensagem,
   InputMessage,
@@ -38,6 +36,12 @@ import fundoAmf from '../../assets/fundo-amf.png'
 const InstitucionalContainer = () => {
   const [isMobile, setIsMobile] = useState(false)
 
+  const [form, setForm] = useState({
+    nome: '',
+    assunto: '',
+    mensagem: '',
+  })
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setIsMobile(window.innerWidth < 600)
@@ -46,6 +50,15 @@ const InstitucionalContainer = () => {
     window.scrollTo(0, 0)
   }, [])
 
+  const sendMail = useCallback(
+    (event) => {
+      event.preventDefault()
+      window.open(`
+        mailto:amf@faculdadeam.edu.br?subject=${ form.assunto }&body=Olá, meu nome é ${ form.nome } e tenho a seguinte duvida, ${ form.mensagem }
+      `)
+    },
+    [form],
+  )
   return (
     <Container>
       {isMobile ? (
@@ -132,20 +145,15 @@ const InstitucionalContainer = () => {
             </DivContatos>
 
             <h2>Entre em contato conosco</h2>
-            <ContainerFormContact>
+            <ContainerFormContact onSubmit={ sendMail }>
               <InputContact
                 id="nome"
                 type="text"
                 placeholder="Seu nome"
                 required
                 style={ inputNome }
-              />
-              <InputContact
-                id="email"
-                type="email"
-                placeholder="Seu email"
-                required
-                style={ inputEmail }
+                value={ form.nome }
+                onChange={ (e) => setForm({ ...form, nome: e.target.value }) }
               />
               <InputContact
                 id="assunto"
@@ -153,6 +161,8 @@ const InstitucionalContainer = () => {
                 placeholder="Assunto"
                 required
                 style={ inputAssunto }
+                value={ form.assunto }
+                onChange={ (e) => setForm({ ...form, assunto: e.target.value }) }
               />
               <InputMessage
                 id="mensagem"
@@ -160,6 +170,8 @@ const InstitucionalContainer = () => {
                 placeholder="Mensagem"
                 required
                 style={ inputMensagem }
+                value={ form.mensagem }
+                onChange={ (e) => setForm({ ...form, mensagem: e.target.value }) }
               />
               <ButtonSendContact>Enviar mensagem</ButtonSendContact>
             </ContainerFormContact>

@@ -69,6 +69,7 @@ export const CardImage = styled.div`
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-size: cover;
+  background-position-x: center;
 `
 
 export const CardText = styled.div`

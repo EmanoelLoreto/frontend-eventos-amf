@@ -1,8 +1,11 @@
-import React, { useContext, useState, useEffect } from 'react'
-// import map from 'lodash/map'
+import React, {
+  useContext, useState, useEffect, useCallback
+} from 'react'
+import map from 'lodash/map'
 import { AuthContext } from '../../screens/LoginScreen/LoginScreen'
 import HeaderHome from '../../components/HeaderHome'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 import {
   Container,
@@ -29,12 +32,14 @@ import {
 } from './EventAdminContainer.styles'
 import ondaDivisor from '../../assets/onda.svg'
 import logoBrancaComEscrita from '../../assets/logo-branca-com-escrita.png'
-import vestibular from '../../assets/vestibular.jpg'
 import fundoAmf from '../../assets/fundo-amf.png'
+import imgDefaultEvento from '../../assets/img-default-evento.jpg'
 
 const HomeContainer = () => {
-  const [evento, setEventoEdit] = useState({})
+  const [eventos, setEventos] = useState([])
   const [isMobile, setIsMobile] = useState(false)
+
+  const apiUrl = process.env.REACT_APP_API_URL
 
   const navigate = useNavigate()
   const handleEdit = () => {
@@ -52,19 +57,28 @@ const HomeContainer = () => {
     }
 
     window.scrollTo(0, 0)
+
+    axios
+      .get(`${ apiUrl }/events/get`)
+      .then((response) => {
+        setEventos(response.data)
+      })
   }, [])
 
-  useEffect(() => {
-    setEventoEdit({
-      nome: 'Vestibular 2022',
-      local: 'Antônio Meneghetti Faculdade',
-      horario: '19:00',
-      data: '20/07/2022',
-      quantosDias: '10',
-      imagemEvento: vestibular,
-      palestrante: 'Eloy Teixeira',
-    })
-  }, [])
+  const imagemEvento = useCallback(
+    (evento) => {
+      let cardImage = <img src={ imgDefaultEvento } alt="img-evento" width="200px" height="100px" />
+
+      axios
+        .get(`${ apiUrl }${ evento.arrImage[0] }`)
+        .then(() => {
+          cardImage = <img src={ `https://${ evento.arrImage[0] }` } alt="img-evento" width="100px" height="100px" />
+        })
+
+      return cardImage
+    },
+    [imgDefaultEvento],
+  )
 
   return (
     <Container>
@@ -102,25 +116,22 @@ const HomeContainer = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>{ evento.nome }</td>
-                    <td><img
-                      id="logo-coderace"
-                      src={ evento.imagemEvento }
-                      width="100px"
-                      height="100px"
-                      alt="Icon"
-                    />
-                    </td>
-                    <td>{ evento.data }</td>
-                    <td>{ evento.horario }</td>
-                    <td>{ evento.local }</td>
-                    <td>{ evento.palestrante }</td>
-                    <td>
-                      <ButtonEditar onClick={ handleEdit }>Editar</ButtonEditar>
-                      <ButtonExcluir>Excluir</ButtonExcluir>
-                    </td>
-                  </tr>
+                  {map(eventos, evento => (
+                    <tr>
+                      <td>{ evento.nameEvent }</td>
+                      <td>
+                        {imagemEvento(evento)}
+                      </td>
+                      <td>{ evento.time.split(' ')[0] }</td>
+                      <td>{ evento.time.split(' ')[1] }</td>
+                      <td>{ evento.place }</td>
+                      <td>{ evento.speaker }</td>
+                      <td>
+                        <ButtonEditar onClick={ handleEdit }>Editar</ButtonEditar>
+                        <ButtonExcluir>Excluir</ButtonExcluir>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </ContainerEventoAdmin>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import map from 'lodash/map'
 import { useNavigate } from 'react-router-dom'
 
@@ -37,8 +37,7 @@ import {
 import videoHome from '../../assets/videoHome.mp4'
 import ondaDivisor from '../../assets/onda.svg'
 import logoBrancaComEscrita from '../../assets/logo-branca-com-escrita.png'
-// import logoEvento from '../../assets/logo-evento.jpg'
-// import vestibular from '../../assets/vestibular.jpg'
+import imgDefaultEvento from '../../assets/img-default-evento.jpg'
 
 const HomeContainer = () => {
   const [eventos, setEventos] = useState([])
@@ -54,19 +53,26 @@ const HomeContainer = () => {
     }
 
     axios
-      .get(`http://${ apiUrl }/events/get`)
+      .get(`${ apiUrl }/events/get`)
       .then((response) => {
-        console.log(response)
         setEventos(response.data)
-      })
-      .catch((error) => {
-        console.log(error)
       })
   }, [])
 
-  useEffect(() => {
-    console.log(eventos)
-  }, [eventos])
+  const imagemEvento = useCallback(
+    (evento) => {
+      let cardImage = <CardImage img={ imgDefaultEvento } />
+
+      axios
+        .get(`${ apiUrl }${ evento.arrImage[0] }`)
+        .then(() => {
+          cardImage = <CardImage img={ `https://${ evento.arrImage[0] }` } />
+        })
+
+      return cardImage
+    },
+    [imgDefaultEvento],
+  )
 
   return (
     <Container>
@@ -92,13 +98,14 @@ const HomeContainer = () => {
 
             <CardsEventos>
               {map(eventos, (evento, index) => (
-                <Card key={ index } onClick={ () => navigate(`/evento/${ evento.id }`) }>
-                  <CardImage img={ `https://${ evento.arrImage[0] }` } />
+                <Card key={ index } onClick={ () => navigate(`/evento/${ evento._id }`, { state: { evento } }) }>
+                  {imagemEvento(evento)}
                   <CardText>
-                    <SpanDate>{evento.quantosDias} dias atrás</SpanDate>
+                    <SpanDate>10 dias atrás</SpanDate>
                     <h2>{evento.nameEvent}</h2>
                     <p>{evento.place}</p>
-                    <p>{evento.time}</p>
+                    <p>{evento.time.split(' ')[0]}</p>
+                    <p>{evento.time.split(' ')[1]}</p>
                   </CardText>
                   <CardStats>
                     <Stat>

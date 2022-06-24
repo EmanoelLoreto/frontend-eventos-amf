@@ -274,11 +274,7 @@ export const InputMessage = styled.textarea`
 `
 
 export const inputNome = {
-  gridArea: '1 / 1 / 2 / 2',
-}
-
-export const inputEmail = {
-  gridArea: '1 / 2 / 2 / 3',
+  gridArea: '1 / 1 / 2 / 3',
 }
 
 export const inputAssunto = {

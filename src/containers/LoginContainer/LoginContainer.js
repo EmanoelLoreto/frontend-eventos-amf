@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 // eslint-disable-next-line import/no-cycle
 import { AuthContext } from '../../screens/LoginScreen/LoginScreen'
-// import map from 'lodash/map'
 import {
   Container,
   SectionLogin,
@@ -13,7 +12,7 @@ import {
   ButtonLogin,
   ButtonVoltar,
 } from './LoginContainer.styles'
-import imgFundo from '../../assets/img-fundo-login.jpg'
+import imgFundo from '../../assets/img-fundo-login.jpeg'
 import imgLogoAmf from '../../assets/logo-branca-com-escrita.png'
 import { useNavigate } from 'react-router-dom'
 
