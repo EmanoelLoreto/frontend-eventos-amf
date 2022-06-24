@@ -67,7 +67,7 @@ const HomeContainer = () => {
 
   const imagemEvento = useCallback(
     (evento) => {
-      let cardImage = <img src={ imgDefaultEvento } alt="img-evento" width="200px" height="100px" />
+      let cardImage = <img src={ `https://${ evento.arrImage[0] }` } alt="img-evento" width="200px" height="100px" />
 
       axios
         .get(`${ apiUrl }${ evento.arrImage[0] }`)
