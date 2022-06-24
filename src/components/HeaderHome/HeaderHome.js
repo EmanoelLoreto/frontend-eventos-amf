@@ -28,8 +28,10 @@ const HeaderContainer = () => {
 
     const hasUserLogged = localStorage.getItem('user')
 
-    if (hasUserLogged?.userLogin) {
+    if (JSON.parse(hasUserLogged)?.userLogin) {
       setSeeCreateEvent(true)
+    } else {
+      setSeeCreateEvent(false)
     }
   }, [])
 
