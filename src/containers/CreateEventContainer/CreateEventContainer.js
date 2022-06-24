@@ -66,16 +66,17 @@ const CreateEventContainer = () => {
       data.preventDefault()
 
       const formData = new FormData()
-      formData.append('image', form.files)
+      formData.append('image', form?.files, form?.files?.names)
+      formData.append('body', JSON.stringify({
+        nameEvent: form.nameEvent,
+        place: form.place,
+        time: form.time,
+        description: form.description,
+        speaker: form.speaker,
+      }))
 
       axios
-        .post(`http://${ apiUrl }/events/create`, {
-          ...form,
-          nameEvent: form.nameEvent,
-          place: form.place,
-          time: form.time,
-          description: form.description,
-        }, {
+        .post(`${ apiUrl }/events/create`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
@@ -87,7 +88,7 @@ const CreateEventContainer = () => {
           console.log(error)
         })
     },
-    [],
+    [form],
   )
 
   useEffect(() => {
