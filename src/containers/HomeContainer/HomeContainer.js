@@ -61,7 +61,7 @@ const HomeContainer = () => {
 
   const imagemEvento = useCallback(
     (evento) => {
-      let cardImage = <CardImage img={ imgDefaultEvento } />
+      let cardImage = <CardImage img={ `https://${ evento.arrImage[0] }` } />
 
       axios
         .get(`${ apiUrl }${ evento.arrImage[0] }`)
@@ -94,7 +94,7 @@ const HomeContainer = () => {
               width="100%"
               alt="Icon"
             />
-            {eventos ? (
+            {eventos.length > 0 ? (
               <h1>Eventos</h1>
             ) : (
               <h1>Nenhum evento cadastrado</h1>
