@@ -94,7 +94,11 @@ const HomeContainer = () => {
               width="100%"
               alt="Icon"
             />
-            <h1>Eventos</h1>
+            {eventos ? (
+              <h1>Eventos</h1>
+            ) : (
+              <h1>Nenhum evento cadastrado</h1>
+            )}
 
             <CardsEventos>
               {map(eventos, (evento, index) => (
