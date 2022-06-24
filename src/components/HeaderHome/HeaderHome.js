@@ -18,11 +18,18 @@ const HeaderContainer = () => {
   const location = useLocation()
 
   const [transparentHeader, setTransparentHeader] = useState(true)
+  const [seeCreateEvent, setSeeCreateEvent] = useState(false)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', () => setTransparentHeader(window.pageYOffset < 100)
       )
+    }
+
+    const hasUserLogged = localStorage.getItem('user')
+
+    if (hasUserLogged?.userLogin) {
+      setSeeCreateEvent(true)
     }
   }, [])
 
@@ -49,9 +56,11 @@ const HeaderContainer = () => {
           <Li>
             <Link to="/contato" selected={ location.pathname === '/contato' }>Contato</Link>
           </Li>
-          <Li>
-            <LinkInscricao transparentheader={ transparentHeader } to="/criar-evento">Criar evento</LinkInscricao>
-          </Li>
+          {seeCreateEvent && (
+            <Li>
+              <LinkInscricao transparentheader={ transparentHeader } to="/criar-evento">Criar evento</LinkInscricao>
+            </Li>
+          )}
         </Ul>
       </NavMenus>
     </Header>
